@@ -7,7 +7,7 @@ package main
 import (
 	"context"
 
-	"github.com/owner/name/plugin"
+	"github.com/drone/drone-harness-trigger/plugin"
 
 	"github.com/kelseyhightower/envconfig"
 	"github.com/sirupsen/logrus"
