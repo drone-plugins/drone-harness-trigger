@@ -7,7 +7,7 @@ name: default
 
 steps:
 - name: build
-  image: golang
+  image: harness0.harness.io/oci/docker_artifacts/hhi/go:1.26.10@sha256:718fddf012b3a305e936ae9964e5a642036bcb7b4c6c0786e2f78f238d637db8
   commands:
   - go build
   - go test ./...
@@ -15,6 +15,8 @@ steps:
 - name: publish
   image: plugins/docker
   settings:
+    pull_image: true
+    no_cache: true
     repo: drone/drone-harness-trigger
     auto_tag: true
     auto_tag_suffix: linux-amd64
@@ -27,6 +29,8 @@ steps:
 - name: publish_arm
   image: plugins/docker
   settings:
+    pull_image: true
+    no_cache: true
     repo: drone/drone-harness-trigger
     auto_tag: true
     auto_tag_suffix: linux-arm
@@ -39,6 +43,8 @@ steps:
 - name: publish_arm
   image: plugins/docker
   settings:
+    pull_image: true
+    no_cache: true
     repo: drone/drone-harness-trigger
     auto_tag: true
     auto_tag_suffix: linux-arm64
